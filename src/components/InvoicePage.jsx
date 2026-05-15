@@ -1,6 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
 import glizzyLogo from '../assets/glizzy-logo.svg';
-import signatureImg from '../assets/sig.jpg';
 
 function InvoicePage({ onLogout }) {
   // --- Editable Invoice Fields ---
@@ -8,8 +7,7 @@ function InvoicePage({ onLogout }) {
   const [clientCompany, setClientCompany] = useState('Thynk Unlimited');
   const [clientAddress, setClientAddress] = useState('123 Anywhere St., Any City');
   const [invoiceNo, setInvoiceNo] = useState('00001');
-  const [invoiceDate, setInvoiceDate] = useState('2030-02-11');
-  const [dueDate, setDueDate] = useState('2030-03-11');
+  const [invoiceDate, setInvoiceDate] = useState(new Date().toISOString().split('T')[0]);
 
   const [specialNotice, setSpecialNotice] = useState('Payment is due within 2 weeks of invoice date. Late payments may incur additional charges.');
 
@@ -49,7 +47,7 @@ function InvoicePage({ onLogout }) {
 
   // --- Format helpers ---
   const formatCurrency = (amount) => {
-    return '$' + amount.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+    return 'Rs. ' + amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   };
 
   const formatDate = (dateStr) => {
@@ -122,15 +120,7 @@ function InvoicePage({ onLogout }) {
                     onChange={(e) => setInvoiceDate(e.target.value)}
                   />
                 </div>
-                <div className="field-group">
-                  <label className="field-label">Due Date</label>
-                  <input
-                    type="date"
-                    className="field-input"
-                    value={dueDate}
-                    onChange={(e) => setDueDate(e.target.value)}
-                  />
-                </div>
+
               </div>
             </section>
 
@@ -332,10 +322,7 @@ function InvoicePage({ onLogout }) {
                     <span className="meta-label">DATE:</span>
                     <span className="meta-value">{formatDate(invoiceDate)}</span>
                   </div>
-                  <div className="meta-row">
-                    <span className="meta-label">DUE DATE:</span>
-                    <span className="meta-value">{formatDate(dueDate)}</span>
-                  </div>
+
                 </div>
               </div>
 
@@ -377,7 +364,7 @@ function InvoicePage({ onLogout }) {
                   <span className="sig-role">{sigClientCompany || 'Company name'}</span>
                 </div>
                 <div className="sig-block sig-owner">
-                  <img src={signatureImg} alt="Signature" className="sig-image" />
+
                   <div className="sig-line"></div>
                   <span className="sig-name">RAJITHA LASANTHI</span>
                   <span className="sig-role">Director</span>

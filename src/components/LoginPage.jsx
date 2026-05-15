@@ -10,8 +10,8 @@ function LoginPage({ onLogin }) {
   const [isLoading, setIsLoading] = useState(false);
 
   // Hardcoded credentials
-  const VALID_USERNAME = 'admin';
-  const VALID_PASSWORD = 'admin123';
+  const VALID_USERNAME = 'rajitha';
+  const VALID_PASSWORD = 'rajitha123';
 
   const handleSubmit = (e) => {
     e.preventDefault();
