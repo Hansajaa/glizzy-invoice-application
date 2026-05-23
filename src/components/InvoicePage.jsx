@@ -9,7 +9,7 @@ function InvoicePage({ onLogout }) {
   const [invoiceNo, setInvoiceNo] = useState('00001');
   const [invoiceDate, setInvoiceDate] = useState(new Date().toISOString().split('T')[0]);
 
-  const [specialNotice, setSpecialNotice] = useState('Payment is due within 2 weeks of invoice date. Late payments may incur additional charges.');
+  const [specialNotice, setSpecialNotice] = useState('Payment is due within 2 months of invoice date.');
 
   // Signature section (your info is fixed, client side editable)
   const [sigClientName, setSigClientName] = useState('');
@@ -258,7 +258,7 @@ function InvoicePage({ onLogout }) {
               </div>
               <div className="fixed-sig-info">
                 <div className="fixed-sig-label">Your Signature (Fixed)</div>
-                <div className="fixed-sig-name">Rajitha Lasanthi — Director</div>
+                <div className="fixed-sig-name">Prasad Brandigampala — Director</div>
               </div>
             </section>
 
@@ -366,7 +366,7 @@ function InvoicePage({ onLogout }) {
                 <div className="sig-block sig-owner">
 
                   <div className="sig-line"></div>
-                  <span className="sig-name">RAJITHA LASANTHI</span>
+                  <span className="sig-name">PRASAD BRANDIGAMPALA</span>
                   <span className="sig-role">Director</span>
                 </div>
               </div>
